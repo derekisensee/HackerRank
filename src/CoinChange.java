@@ -19,11 +19,11 @@ public class CoinChange {
         for (int i = 0; i < coins.length; i++) {
             sum += coins[i];
         }
+	solutions.put(coins, sum);
         if (sum == solveFor) {
             count++;
         } else {
-            // TODO: figure out what new "coins" array to create
-            for (int i = 0; i < coins.length; i++) {
+            for (int i = 0; i < coins.length; i++) { // find repeating sum of a coin
 		int aMod = solveFor % coins[i];
 		if (aMod == 0) {
 		    count++;
@@ -35,8 +35,12 @@ public class CoinChange {
 		}
 		System.out.println("Finding: " + solveFor + " % " + coins[i] + " = " + (solveFor % coins[i]));
 	    }
+            // TODO: figure out what new "coins" array to create
+            for (int a = 0; a < coins.length; a++) {
+		for (int b = 0; b < coins.length; b++) {
 		    
-            //solve(coins, solveFor);
+		}
+	    }
         }
     }
 
@@ -59,7 +63,7 @@ public class CoinChange {
         solve(coins, n);
         // System.out.println(count);
 	// solutions.forEach((k,v) -> for (Integer s : k) {System.out.println("key: " + s + " value: " + v)});
-	for (Map.Entry<Integer[], Integer> e : solutions.entrySet()) {
+	for (Map.Entry<Integer[], Integer> e : solutions.entrySet()) { // messy and gross
 	    Integer[] key = e.getKey();
 	    Integer val = e.getValue();
 	    for (int i = 0; i < key.length; i++) {
