@@ -27,7 +27,7 @@ public class CoinChange {
                 for (int b = 0; b < coins.length; b++) {
                     sum += coins[b];
                 }
-                solutions.put(coins, sum);
+                solutions.put(coins, sum); // chchch
                 if (sum == solveFor) {
                     count++;
                 } else {
